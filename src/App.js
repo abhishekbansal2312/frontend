@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DashBoard from "./pages/DashBoard";
+import Items from "./pages/Items";
+import Form from "./pages/Form";
+import Login from "./pages/Login";
+import { AuthProvider } from "./pages/AuthProvider"; // Import the AuthProvider
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/items" element={<Items />} />
+        <Route path="/" element={<Form />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
